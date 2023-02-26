@@ -23,25 +23,6 @@ mongoose
     const currentConnection = res.connections[0];
     const DBName = currentConnection.name;
     console.info(`数据库 ${DBName} 连接成功!`);
-    // const mongoInstance = currentConnection.getClient().db(DBName);
-    // try {
-    //   await mongoInstance.createCollection(SocketCollection, {
-    //     capped: true,
-    //     size: 1e6,
-    //   });
-    // } catch (e) {
-    //   // collection already exists
-    // }
-    // const mongoCollection = mongoInstance.collection(SocketCollection);
-
-    // io.adapter(createAdapter(mongoCollection));
-
-    // // io.of("/topic").adapter.on("create-room", (room) => {
-    // //   console.log(`room ${room} was created`);
-    // // });
-    // io.of("/").adapter.on("message", (data) => {
-    //   console.log(data);
-    // });
   })
   .catch((err) => {
     console.log(err.message || err);
@@ -79,7 +60,7 @@ app
       "Access-Control-Allow-Headers",
       "Content-Type, Content-Length, Authorization, Accept, X-Requested-With, Set-Cookies"
     );
-    // 如果请求首部中包含 cookie，则设置 * 无效
+    // 设置跨域请求, 如果请求首部中包含 cookie，则设置 * 无效
     ctx.set("Access-Control-Allow-Origin", "http://localhost:8080");
     ctx.set("Access-Control-Allow-Credentials", true);
     ctx.set(
