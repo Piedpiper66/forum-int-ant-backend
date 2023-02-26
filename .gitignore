@@ -6,7 +6,7 @@ node_modules
 Schemas
 static
 config/db.js
-# config/private.js
+config/private.js
 test.js
 
 # local env files
